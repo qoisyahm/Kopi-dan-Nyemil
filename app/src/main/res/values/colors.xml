@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand Coffee Colors -->
+    <color name="dark_espresso">#2B1B17</color>
+    <color name="dark_brown">#3E2723</color>
+    <color name="medium_brown">#5D4037</color>
+    <color name="warm_brown">#8D6E63</color>
+    <color name="light_caramel">#D7CCC8</color>
+    <color name="cream_bg">#FAF7F2</color>
+    <color name="surface_white">#FFFFFF</color>
+
+    <!-- Accent Red Colors -->
+    <color name="accent_red">#D32F2F</color>
+    <color name="accent_red_dark">#B71C1C</color>
+    <color name="accent_red_light">#FFEBEE</color>
+
+    <!-- Neutral Colors -->
+    <color name="black">#1A1A1A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="input_border">#E0E0E0</color>
+    <color name="nav_bg">#1E1310</color>
+    <color name="chip_bg_unselected">#EFEBE9</color>
+</resources>
