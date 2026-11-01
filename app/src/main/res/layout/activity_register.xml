@@ -118,12 +118,26 @@
             android:id="@+id/btnRegisterSubmit"
             android:layout_width="match_parent"
             android:layout_height="54dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bg_button_primary"
             android:fontFamily="sans-serif-medium"
             android:text="Register"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:text="Sudah punya akun? Login di sini"
+            android:textColor="@color/accent_red"
+            android:textSize="13sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

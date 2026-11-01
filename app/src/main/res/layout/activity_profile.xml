@@ -127,7 +127,7 @@
                     android:id="@+id/etProfileName"
                     android:layout_width="match_parent"
                     android:layout_height="52dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/bg_input_field"
                     android:hint="Masukkan nama baru"
                     android:inputType="textPersonName"
@@ -142,65 +142,116 @@
                     android:layout_height="54dp"
                     android:background="@drawable/bg_button_primary"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Save"
+                    android:text="Save Profile"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="16sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_button_secondary"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Logout / Keluar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/accent_red"
+                    android:textSize="15sp" />
             </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Navigation Bar -->
+    <!-- Bottom Navigation Bar (Custom Clean Item Structure) -->
     <LinearLayout
         android:id="@+id/bottomNavProfile"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="68dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_bottom_nav"
         android:elevation="12dp"
         android:orientation="horizontal"
         android:weightSum="3">
 
-        <Button
+        <LinearLayout
             android:id="@+id/btnNavHomeFromProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
-            android:drawableTop="@drawable/ic_home"
-            android:drawableTint="#B0BEC5"
-            android:paddingTop="8dp"
-            android:text="Home"
-            android:textColor="#B0BEC5"
-            android:textSize="11sp" />
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_home"
+                app:tint="#B0BEC5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:includeFontPadding="false"
+                android:text="Home"
+                android:textColor="#B0BEC5"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnNavOrderFromProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
-            android:drawableTop="@drawable/ic_order"
-            android:drawableTint="#B0BEC5"
-            android:paddingTop="8dp"
-            android:text="Order"
-            android:textColor="#B0BEC5"
-            android:textSize="11sp" />
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <Button
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_order"
+                app:tint="#B0BEC5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:includeFontPadding="false"
+                android:text="Order"
+                android:textColor="#B0BEC5"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/btnNavProfileActive"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:backgroundTint="#00000000"
-            android:drawableTop="@drawable/ic_profile"
-            android:drawableTint="@color/accent_red"
-            android:paddingTop="8dp"
-            android:text="Profile"
-            android:textColor="@color/accent_red"
-            android:textSize="11sp"
-            android:textStyle="bold" />
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_profile"
+                app:tint="@color/accent_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:includeFontPadding="false"
+                android:text="Profile"
+                android:textColor="@color/accent_red"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

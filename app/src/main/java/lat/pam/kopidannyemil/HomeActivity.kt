@@ -10,7 +10,10 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -44,8 +47,23 @@ class HomeActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+        // Penanganan System Navigation Bar Window Insets secara akurat
+        val bottomNavLayout = findViewById<View>(R.id.bottomNavLayout)
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNavLayout) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val baseHeightPx = (68 * resources.displayMetrics.density).toInt()
+
+            val params = view.layoutParams
+            params.height = baseHeightPx + insets.bottom
+            view.layoutParams = params
+
+            view.setPadding(view.paddingLeft, view.paddingTop, view.paddingRight, insets.bottom)
+            windowInsets
+        }
 
         val username = intent.getStringExtra("USER_NAME") ?: "User"
         val tvGreeting = findViewById<TextView>(R.id.tvGreeting)
@@ -95,8 +113,8 @@ class HomeActivity : AppCompatActivity() {
         layoutFloatingCart.setOnClickListener(openCartListener)
         btnViewCart.setOnClickListener(openCartListener)
 
-        val btnNavOrder = findViewById<Button>(R.id.btnNavOrder)
-        val btnNavProfile = findViewById<Button>(R.id.btnNavProfile)
+        val btnNavOrder = findViewById<View>(R.id.btnNavOrder)
+        val btnNavProfile = findViewById<View>(R.id.btnNavProfile)
 
         btnNavOrder.setOnClickListener {
             val intent = Intent(this, AlamatActivity::class.java)
@@ -131,7 +149,7 @@ class HomeActivity : AppCompatActivity() {
 
         fun selectChip(selectedTextView: TextView, categoryName: String) {
             selectedCategory = categoryName
-            chips.forEach { (chipView, name, _) ->
+            chips.forEach { (chipView, _, _) ->
                 if (chipView == selectedTextView) {
                     chipView.setBackgroundResource(R.drawable.bg_chip_selected)
                     chipView.setTextColor(getColor(R.color.white))
